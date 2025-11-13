@@ -80,8 +80,28 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+vim.opt.expandtab = true -- Convert tabs to spaces
+vim.opt.shiftwidth = 4 -- Number of spaces for auto-indent
+vim.opt.tabstop = 4 -- Number of spaces a tab counts for
+vim.opt.softtabstop = 4 -- Editing operations work with this many spaces
+vim.opt.autoindent = true -- Copy indent from current line when starting a new line
+vim.opt.smartindent = true -- Smart auto-indenting when starting a new line
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+--
+vim.keymap.set('n', '<leader>cp', function()
+  local path = vim.fn.expand '%:p'
+  vim.fn.system('pbcopy', path)
+  vim.notify('Copied path: ' .. path, vim.log.levels.INFO)
+end, { desc = '[C]opy buffer [p]ath to clipboard' })
+
+vim.keymap.set('n', '<leader>cdp', function()
+  local full_path = vim.fn.expand '%:p'
+  local dir_path = vim.fn.fnamemodify(full_path, ':h')
+  vim.fn.system('pbcopy', dir_path)
+  vim.notify('Copied directory path: ' .. dir_path, vim.log.levels.INFO)
+end, { desc = '[C]opy buffer [d]irectory [p]ath to clipboard' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`

@@ -17,13 +17,13 @@ return {
     filesystem = {
       window = {
         filtered_items = {
-                visible = true,
-                hide_dotfiles = false,
-                never_show = {'.git'},
+          visible = true,
+          hide_dotfiles = false,
+          never_show = { '.git' },
         },
         follow_current_file = {
-                enabled = true,
-                leave_dirs_open = false,
+          enabled = true,
+          leave_dirs_open = false,
         },
         mappings = {
           ['\\'] = 'close_window',
