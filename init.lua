@@ -91,6 +91,12 @@ vim.opt.softtabstop = 4 -- Editing operations work with this many spaces
 vim.opt.autoindent = true -- Copy indent from current line when starting a new line
 vim.opt.smartindent = true -- Smart auto-indenting when starting a new line
 
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldlevel = 99 -- Open all folds by default
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 --
