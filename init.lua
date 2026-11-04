@@ -282,21 +282,11 @@ require('lazy').setup({
         else
           return {
             timeout_ms = 200,
-            lsp_format = 'fallback',
+            lsp_format = 'never',
           }
         end
       end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        python = { 'ruff' },
-        json = { 'fixjson' },
-        yaml = { 'yamlfmt' },
-        nix = { 'nixfmt' }
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
+      formatters_by_ft = require('custom.languages').formatters_by_ft,
     },
   },
 

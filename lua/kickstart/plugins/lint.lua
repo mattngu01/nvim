@@ -2,15 +2,11 @@ return {
 
   { -- Linting
     'mfussenegger/nvim-lint',
-    enabled = false,
+    enabled = true,
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
-      lint.linters_by_ft = {
-        python = { 'ruff' },
-        terraform = { 'tflint' },
-        ansible = { 'ansible-lint' },
-      }
+      lint.linters_by_ft = require('custom.languages').linters_by_ft
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:

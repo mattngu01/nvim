@@ -120,6 +120,19 @@ examples of adding popularly requested plugins.
 
 [The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
 
+### Language-specific tooling
+
+Language settings live in `lua/custom/languages/`. Edit the `enabled` list in `lua/custom/languages/init.lua` to turn a language on or off:
+
+```lua
+local enabled = {
+  require 'custom.languages.python',
+  -- require 'custom.languages.lua',
+}
+```
+
+To add a language, create a module such as `lua/custom/languages/rust.lua`. Return its filetype-keyed `formatters_by_ft` and `linters_by_ft` maps, plus any `lspservers` it needs. Then add `require 'custom.languages.rust'` to the `enabled` list. Install the external tools with Mason, mise, or Nix, and make sure they are on Neovim's `PATH`.
+
 ### FAQ
 
 * What should I do if I already have a pre-existing Neovim configuration?
