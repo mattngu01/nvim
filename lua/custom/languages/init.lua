@@ -5,11 +5,13 @@ local enabled = {
 }
 
 local config = {
+  -- see filetypes of open buffer via
+  -- :set filetype?
   -- You can use 'stop_after_first' to run the first available formatter from the list
   -- javascript = { "prettierd", "prettier", stop_after_first = true },
 
   -- Set formatter IDs in lua/custom/languages/<language>.lua.
-  -- Find IDs with `:help conform-formatters`; definitions are in
+  -- Find IDs with `:help conform.txt`; definitions are in
   -- conform.nvim/lua/conform/formatters/. `:ConformInfo` shows available formatters.
   formatters_by_ft = {}, -- filetype = { 'formatter_id' }
 
